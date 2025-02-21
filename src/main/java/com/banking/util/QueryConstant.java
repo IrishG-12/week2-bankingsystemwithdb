@@ -11,5 +11,5 @@ public interface QueryConstant {
     String SELECT_ACCOUNTNUMBER = "SELECT account_id FROM accounts WHERE account_id = ?";
     String SELECT_BALANCE = "SELECT balance FROM accounts WHERE account_id = ?";
     String DELETE_ACCOUNT = "DELETE FROM accounts WHERE account_id = ?";
-
+    String DELETE_ACCOUNT_TRANSACTION = "DELETE FROM transactions WHERE account_id = ?";
 }

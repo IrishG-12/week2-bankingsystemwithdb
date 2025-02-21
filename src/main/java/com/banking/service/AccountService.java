@@ -264,8 +264,12 @@ public class AccountService extends DatabaseConnection implements QueryConstant 
     public static void deleteAccount(String accountNumber){
 
         try {
-            stmt = con.prepareStatement(DELETE_ACCOUNT);
+            stmt = con.prepareStatement(DELETE_ACCOUNT_TRANSACTION);
+            stmt.setString(1, accountNumber);
+            stmt.executeUpdate();
+            stmt.close();
 
+            stmt = con.prepareStatement(DELETE_ACCOUNT);
             stmt.setString(1, accountNumber);
 
             int rowsAffected = stmt.executeUpdate();
